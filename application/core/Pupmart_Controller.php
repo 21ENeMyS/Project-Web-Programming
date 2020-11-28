@@ -4,11 +4,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pupmart_Controller extends CI_Controller
 {
-
   /**
+   * Class Pupmart_Controller
    * Membuat Controller sendiri atau Costumize Controller
    * @param [type] $data
-   * @return viod
+   * @return void
    */
 
   public function __construct()
