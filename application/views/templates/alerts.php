@@ -8,25 +8,25 @@
  */
 
 
-$success = $this->session->fleshdata('success');
-$warning = $this->session->fleshdata('warning');
-$error = $this->session->fleshdata('error');
+$success = $this->session->flashdata('success');
+$warning = $this->session->flashdata('warning');
+$error = $this->session->flashdata('error');
 
 if ($success) {
-  $alert_status = 'alert_success';
+  $alert_status = 'alert-success';
   $status = 'Success';
   $message = $success;
 }
 
 if ($warning) {
-  $alert_status = 'alert_warning';
+  $alert_status = 'alert-warning';
   $status = 'Warning';
   $message = $warning;
 }
 
 
 if ($error) {
-  $alert_status = 'alert_danger';
+  $alert_status = 'alert-danger';
   $status = 'Error!';
   $message = $error;
 }

@@ -106,7 +106,7 @@ $('.form-control').on('keyup',function (e) {
 // https://gist.github.com/codeguy/6684588
 
 function CreateSlug() {
-  const kategori = $('#kategori').val();
+  const kategori = $("#kategori").val();
   $("#slug").val(string_to_slug(kategori));
 }
 

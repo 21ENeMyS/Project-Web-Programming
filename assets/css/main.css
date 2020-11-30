@@ -38,13 +38,15 @@ body {
 }
 
 
-
+.navbar.navbar-light .navbar-nav .nav-item .nav-link:hover,
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-item .nav-link,
 .page-footer .logo {
 	color: white;
 }
 
+.navbar.navbar-light .navbar-nav .nav-item .nav-link,
 .navbar-light .navbar-nav .nav-link {
 	color: rgba(255, 255, 255, 0.5);
 }
@@ -426,4 +428,3 @@ input[type=email] {
 
 
 /* end responsive breakpoints */
-

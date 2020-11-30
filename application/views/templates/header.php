@@ -27,9 +27,6 @@
 
 <body>
 
-  <!--Navbar-->
-  <?php $this->load->view('templates/navbar'); ?>
-  <!--/.Navbar-->
 
   <!-- Content -->
   <?php $this->load->view($page); ?>

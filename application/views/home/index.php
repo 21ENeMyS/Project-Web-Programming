@@ -1,3 +1,5 @@
+<?php $this->load->view('templates/navbar'); ?>
+
 <!--Carousel Wrapper-->
 <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
   <ol class="carousel-indicators my-4">
@@ -46,7 +48,6 @@
 
 <!-- About -->
 <section class="about mt-5 d-flex justify-content-center align-items-center" id="about">
-  <?php $this->load->view('templates/alerts'); ?>
   <div class="container">
     <h1 class="h1-responsive font-weight-bold text-center mb-4">About</h1>
     <div class="row">
