@@ -2,8 +2,8 @@
 
 function getDropdownList($table, $column)
 {
-  $CI = &get_instance();
-  $query = $CI->db->select($column)->form($table)->get();
+  $CI =& get_instance();
+  $query = $CI->db->select($column)->from($table)->get();
 
   if ($query->num_rows() >= 1) {
     $option1 = ['' =>  '_ select _'];
@@ -18,8 +18,8 @@ function getDropdownList($table, $column)
 
 function getCategories()
 {
-  $CI = &get_instance();
-  $query = $CI->db->get('category')->result();
+  $CI =& get_instance();
+  $query = $CI->db->getall('kategori')->result();
   return $query;
 }
 

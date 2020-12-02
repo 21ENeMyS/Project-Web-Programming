@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 // Membuat pagination dan untuk memper pendek syntaks
 $route['kategori/(:num)']  = 'kategori/index/$1';
+$route['produk/(:num)']  = 'produk/index/$1';

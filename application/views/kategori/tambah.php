@@ -7,7 +7,7 @@
         <div class="card">
           <!-- Card Header -->
           <div class="card-header text-dark">
-            <h5>Tambah Kategori</h5>
+            <h5><?= $title; ?></h5>
           </div>
           <!-- Card Header -->
           <!-- Card Body -->
@@ -18,7 +18,7 @@
             <!-- Input -->
             <div class="form-group">
               <label for="kategori">Kategori</label>
-              <input type="text" class="form-control" id="kategori" onkeyup="CreateSlug()" autofocus name="kategori" autocomplete="off">
+              <input type="text" class="form-control" id="kategori" onkeyup="CreateSlug()" autofocus name="kategori" autocomplete="off" value="<?= $input->kategori; ?>">
               <?= form_error('kategori'); ?>
             </div>
             <!-- Input -->
@@ -26,12 +26,12 @@
             <!-- Input -->
             <div class="form-group">
               <label for="slug">Slug</label>
-              <input type="slug" class="form-control" id="slug" aria-describedby="slugHelp" readonly name="slug" autocomplete="off">
+              <input type="slug" class="form-control" id="slug" aria-describedby="slugHelp" readonly name="slug" autocomplete="off" value="<?= $input->slug; ?>">
             </div>
             <?= form_error('slug'); ?>
             <!-- Input -->
 
-            <button type="submit" class="btn btn-primary mt-4">Tambahkan</button>
+            <button type="submit" class="btn btn-primary mt-4"><?= $tombol; ?></button>
             <?php form_close() ?>
             <!-- Form -->
           </div>

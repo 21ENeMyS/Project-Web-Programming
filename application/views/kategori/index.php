@@ -1,87 +1,28 @@
-<?php $this->load->view('templates/navbar-admin'); ?>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow py-2">
+  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="admin.html">
+    <img src="<?= base_url(); ?>assets/img/favicon.jpeg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    Pupmart
+  </a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-t oggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <form action="<?= base_url(); ?>kategori/cari" method="POST" class="d-flex w-100">
+    <input class="form-control form-control-dark  text-dark" type="text" placeholder="Search" aria-label="Search" id="form-control" name="keyword" value="<?= $this->session->userdata('keyword'); ?>" autocomplete="off">
+    <a href="<?= base_url('kategori/reset') ?>" class="btn btn-info btn-sm">
+      <i class="fas fa-eraser"></i>
+    </a>
+  </form>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="<?= base_url(); ?>logout/">Logout</a>
+    </li>
+  </ul>
+</nav>
+<!-- Navbar -->
+
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-dark bg-dark sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="admin.html">
-              <i class="fas fa-home mr-2"></i>
-              Dashboard
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="admin-kategori.html">
-              Category
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fas fa-file mr-2"></i>
-              Orders
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admin-produk.html">
-              <i class="fas fa-shopping-cart mr-2"></i>
-              Products
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fas fa-user mr-2"></i>
-              Customers
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fas fa-chart-bar mr-2"></i>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fas fa-layer-group mr-2"></i>
-              Integrations
-            </a>
-          </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Saved reports</span>
-          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Year-end sale
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
+    <?php $this->load->view('templates/navbar-side-admin'); ?>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Kategori</h1>
@@ -95,7 +36,7 @@
       <?php $this->load->view('templates/alerts'); ?>
 
 
-      <div class="table-responsive mt-5">
+      <div class="table-responsive">
         <div class="card card-list text-center">
           <div class="card-header white d-flex justify-content-between align-items-center text-dark">
             <h5>Kategori</h5>
@@ -119,11 +60,13 @@
                     <td><?= $c->kategori; ?></td>
                     <td><?= $c->slug; ?></td>
                     <td>
-                      <form action="">
+                      <form action="<?= base_url(); ?>kategori/hapus/<?= $c->id ?>" method="POST">
+                        <?= form_hidden('id', $c->id); ?>
                         <a class="btn btn-sm" href="<?= base_url(); ?>kategori/ubah/<?= $c->id; ?>">
                           <i class="fas fa-edit fa-lg text-info"></i>
                         </a>
-                        <button type="submit" class="btn btn-sm">
+
+                        <button type="submit" class="btn btn-sm" onclick="return confirm('Anda yakin akan menghapus <?= $c->kategori ?> ?  ')">
                           <i class="fas fa-trash fa-lg text-danger"></i>
                         </button>
                       </form>

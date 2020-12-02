@@ -56,7 +56,8 @@ class Kategori extends Pupmart_Controller
         'title' => 'Tambah Kategori',
         'input' => $input,
         'form_action' => base_url('kategori/tambah'),
-        'page' => 'kategori/tambah'
+        'page' => 'kategori/tambah',
+        'tombol' => 'Tambah'
       ];
 
       $this->view($data);
@@ -134,17 +135,16 @@ class Kategori extends Pupmart_Controller
     */
 
     if (!$_POST) {
-      $data['input'] = $data['content'];
+      $data['input']  = $data['content'];
     } else {
-      $data['input'] = (object) $this->input->post(null, true);
+      $data['input']  = (object) $this->input->post(null, true);
     }
 
     if (!$this->kategori->validate()) {
-      $data = [
-        'title' => 'Edit Kategori',
-        'form_action' => base_url("kategori/ubah/$id"),
-        'page' => 'kategori/tambah'
-      ];
+      $data['title']      = 'Edit Kategori';
+      $data['form_action']  = base_url("kategori/ubah/$id");
+      $data['page']      = 'kategori/tambah';
+      $data['tombol']      = 'simpan';
 
       $this->view($data);
       return;
@@ -159,12 +159,79 @@ class Kategori extends Pupmart_Controller
 
     if ($this->kategori->where('id', $id)->update($data['input'])) {
       $this->session->set_flashdata('success', ' Data berhasil diperbaharui');
+      redirect(base_url('kategori'));
     } else {
       $this->session->set_flashdata('error', ' Ooow! Data gagal diperbaharui');
+      redirect(base_url('kategori/ubah'));
+    }
+  }
+
+
+  public function hapus($id)
+  {
+    if (!$_POST) {
+      redirect(base_url('kategori'));
+    }
+
+    /**  
+     * Jika tidak menemukan suatu data didalam tabel kategori 
+     * dengan id yang kita
+     * maka akan menampilkan pesan warning
+     * dan akan di redirect ke halaman kategori kembali
+     */
+
+    if (!$this->kategori->where('id', $id)->first()) {
+      $this->session->set_flashdata('warning', ' Mohon maaf Saya tidak menemukan data yang anda cari');
+      redirect(base_url('kategori'));
+    }
+
+    /** 
+     * Jika data berhasil ditemukan maka akan 
+     * berhasil melakukan proses hapus dan akan diredirect ke halaman kategori
+     * dan akan menampilkan pesan sukses data berhasil dihapus
+     * dan jika gagal akan menampilkan pesan error
+     */
+
+    if ($this->kategori->where('id', $id)->delete()) {
+      $this->session->set_flashdata('success', ' Data berhasil dihpus');
+    } else {
+      $this->session->set_flashdata('error', ' Data gagal dihapus');
     }
 
     redirect(base_url('kategori'));
   }
+
+  public function cari($page = null)
+  {
+    if (isset($_POST['keyword'])) {
+      $this->session->set_userdata('keyword', $this->input->post('keyword', true));
+    } else {
+      $this->session->set_flashdata('error', 'Maaf saya tidak menemukan data yang anda cari');
+      redirect(base_url('kategori'));
+    }
+
+    $keyword = $this->session->userdata('keyword');
+    $data['title']    = 'Kategori';
+    $data['content']  = $this->kategori->like('kategori', $keyword)->paginate($page)->getAll();
+    $data['total_rows']  = $this->kategori->like('kategori', $keyword)->count();
+    $data['pagination']  = $this->kategori->makePagination(
+      base_url('kategori/cari'),
+      3,
+      $data['total_rows'],
+    );
+    $data['page']    = 'kategori/index';
+
+    $this->view($data);
+  }
+
+
+  public function reset()
+  {
+    $this->session->unset_userdata('keyword');
+    redirect(base_url('kategori'));
+  }
 }
+
+
 
 /* End of file Kategori.php */
