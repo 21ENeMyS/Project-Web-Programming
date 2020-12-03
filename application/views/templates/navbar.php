@@ -35,7 +35,13 @@
               <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
                 <a class="dropdown-item" href="#">Ubah Profile</a>
                 <a class="dropdown-item" href="#">Orders</a>
-                <a class="dropdown-item" href="<?= base_url(); ?>logout/">Keluar</a>
+                <?php
+                if ($this->session->userdata('role') != 'admin') : ?>
+                  <a class="dropdown-item" href="<?= base_url(); ?>logout/">Keluar</a>
+                <?php else : ?>
+                  <a class="dropdown-item" href="<?= base_url(); ?>user/">Admin</a>
+                  <a class="dropdown-item" href="<?= base_url(); ?>logout/">Keluar</a>
+                <?php endif; ?>
               </div>
             </li>
         </div>

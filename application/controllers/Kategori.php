@@ -17,7 +17,11 @@ class Kategori extends Pupmart_Controller
   public function __construct()
   {
     parent::__construct();
-    //Do your magic here
+    $role = $this->session->userdata('role');
+    if ($role != 'admin') {
+      redirect(base_url('/'));
+      return;
+    }
   }
 
 

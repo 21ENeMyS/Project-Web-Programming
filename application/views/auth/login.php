@@ -19,14 +19,14 @@
 
 	 				<!-- Email -->
 	 				<div class="md-form">
-	 					<?= form_input(['type' => 'email', 'name' => 'email', 'value' => $input->email, 'class' => 'form-control',]); ?>
+	 					<input type="email" id="inputMDEx" class="form-control" autocomplete="off" name="email">
 	 					<label for="inputMDEx">Email</label>
 	 					<?= form_error('email'); ?>
 	 				</div>
 
 	 				<!-- Password -->
 	 				<div class="md-form">
-	 					<?= form_password('password', '', ['class' => 'form-control',]); ?>
+	 					<input type="password" id="inputMDEx" class="form-control" autocomplete="off" name="password">
 	 					<label for="inputMDEx">Password</label>
 	 					<?= form_error('password'); ?>
 	 				</div>

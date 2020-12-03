@@ -8,7 +8,7 @@ class User_model extends Pupmart_Model
   /** 
    * Class User_model
    * 
-   * @author almarup21 <https://github.com/almarup21>
+   * @author almarup21 <almarup21@gmail.com>
    * @package ${NAMESPACE}
    */
 

@@ -16,28 +16,28 @@
 
 	 				<!-- Nama -->
 	 				<div class="md-form">
-	 					<?= form_input('nama', $input->nama, ['class' => 'form-control',  'autocomplete' => true]); ?>
+	 					<input type="text" id="inputMDEx" class="form-control" autocomplete="off" name="nama" value="<?= $input->nama; ?>">
 	 					<label for="inputMDEx">Nama</label>
 	 					<?= form_error('nama'); ?>
 	 				</div>
 
 	 				<!-- Email -->
 	 				<div class="md-form">
-	 					<?= form_input(['type' => 'email', 'name' => 'email', 'value' => $input->email, 'class' => 'form-control',  'autocomplete' => true]); ?>
+	 					<input type="email" id="inputMDEx" class="form-control" autocomplete="off" name="email" value="<?= $input->email; ?>">
 	 					<label for="inputMDEx">Email</label>
 	 					<?= form_error('email'); ?>
 	 				</div>
 
 	 				<!-- Password -->
 	 				<div class="md-form">
-	 					<?= form_password('password', '', ['class' => 'form-control',]); ?>
+	 					<input type="password" id="inputMDEx" class="form-control" autocomplete="off" name="password">
 	 					<label for="inputMDEx">Password</label>
 	 					<?= form_error('password'); ?>
 	 				</div>
 
 	 				<!-- Konfirmasi Password -->
 	 				<div class="md-form">
-	 					<?= form_password('password_confirmation', '', ['class' => 'form-control']); ?>
+	 					<input type="password" id="inputMDEx" class="form-control" autocomplete="off" name="password_confirmation">
 	 					<label for="inputMDEx">Konfirmasi Password</label>
 	 					<?= form_error('password_confirmation'); ?>
 	 				</div>
