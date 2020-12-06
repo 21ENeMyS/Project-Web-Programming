@@ -68,3 +68,10 @@ Acknowledgement
 
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
+
+****************
+email : admin@gmail.com
+passw : admin1234
+email : user@gmail.com
+passw : user1234
+****************

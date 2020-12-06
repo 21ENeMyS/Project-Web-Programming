@@ -8,8 +8,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white-50" href="#">
-              <i class="fas fa-file mr-2"></i>
+            <a class="nav-link text-white-50" href="<?= base_url(); ?>order/">
+              <i class="fas fa-chart-bar mr-2"></i>
               Orders
             </a>
           </li>
@@ -17,12 +17,6 @@
             <a class="nav-link text-white-50" href="<?= base_url(); ?>produk/">
               <i class="fas fa-shopping-cart mr-2"></i>
               Products
-            </a>
-          </li>
-          <li class="nav-item text-white-50">
-            <a class="nav-link text-white-50" href="#">
-              <i class="fas fa-chart-bar mr-2"></i>
-              Reports
             </a>
           </li>
           <li class="nav-item">

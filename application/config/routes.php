@@ -57,3 +57,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['kategori/(:num)']  = 'kategori/index/$1';
 $route['produk/(:num)']  = 'produk/index/$1';
 $route['user/(:num)']  = 'user/index/$1';
+$route['order/(:num)']  = 'order/index/$1';

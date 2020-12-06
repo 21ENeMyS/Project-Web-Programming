@@ -1,4 +1,12 @@
 <?php $this->load->view('templates/navbar'); ?>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <?php $this->load->view('templates/alerts'); ?>
+    </div>
+  </div>
+</div>
+
 
 <!--Carousel Wrapper-->
 <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
@@ -16,7 +24,7 @@
           <p>Pupuk ZA mengandung kombinasi terbaik dari Nit ate-Nitrogen, yang langsung tersedia
             untuk tanaman, dan
             Ammonium-Nitrogen, yang secara perlahan tersedia sebagai cadangan. </p>
-          <a href="detail-produk.html" class="btn btn-success">Buy now</a>
+          <a href="<?= base_url(); ?>detail/" class="btn btn-success">Buy now</a>
         </div>
       </div>
     </div>
@@ -27,7 +35,7 @@
           <h1 class="text-uppercase font-weight-bold">pupmart</h1>
           <p>Pupuk ZA mengandung kombinasi terbaik dari Nit ate-Nitrogen, yang langsung tersedia untuk tanaman, dan
             Ammonium-Nitrogen, yang secara perlahan tersedia sebagai cadangan. </p>
-          <a href="detail-produk.html" class="btn btn-primary">Buy now</a>
+          <a href="<?= base_url(); ?>detail/" class="btn btn-primary">Buy now</a>
         </div>
       </div>
     </div>
@@ -38,7 +46,7 @@
           <h1 class="text-uppercase font-weight-bold">pupmart</h1>
           <p>Pupuk ZA mengandung kombinasi terbaik dari Nit ate-Nitrogen, yang langsung tersedia untuk tanaman, dan
             Ammonium-Nitrogen, yang secara perlahan tersedia sebagai cadangan. </p>
-          <a href="detail-produk.html" class="btn btn-success">Buy now</a>
+          <a href="<?= base_url(); ?>detail/" class="btn btn-success">Buy now</a>
         </div>
       </div>
     </div>

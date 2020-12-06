@@ -118,8 +118,8 @@ class Kategori extends Pupmart_Controller
      * Apakah suatu data dengan $id yang 
      * kita pilih di dalam tabel tersebut 
      * 
-     * @author
-     * @package
+     * @author almarup21 <almarup21@email.com>
+     * @package ${NAMESPACE}
      * */
 
     $data['content'] = $this->kategori->where('id', $id)->first();
